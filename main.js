@@ -2,9 +2,9 @@ var finish = function(vm, selected) {
   vm.submitted = true;
 
   if (selected === 'hillary') {
-    vm.headerImg = 'https://slack-imgs.com/?c=1&url=https%3A%2F%2Fmedia0.giphy.com%2Fmedia%2F11F6daC0kgF0bu%2Fgiphy.gif';
+    vm.headerImg = 'http://i.perezhilton.com/wp-content/uploads/2016/04/hillary-clinton-bernie-sanders-bad-lip-reading-1.gif';
   } else {
-    vm.headerImg = 'https://slack-imgs.com/?c=1&url=https%3A%2F%2Fmedia0.giphy.com%2Fmedia%2F11F6daC0kgF0bu%2Fgiphy.gif';
+    vm.headerImg = 'https://media.giphy.com/media/3o6Zt8zdGRjQYz8sQ8/source.gif';
   }
 };
 
