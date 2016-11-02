@@ -9,6 +9,7 @@ new Vue({
   data: {
     phone: '',
     email: '',
+    selected: '',
     error: null,
     submitting: false,
     submitted: false,
@@ -21,6 +22,7 @@ new Vue({
       var vm = this;
       var phone = vm.phone;
       var email = vm.email;
+      var selected = vm.selected;
 
       if (email === 'test') {
         finish(vm);
@@ -36,7 +38,7 @@ new Vue({
       vm.error = null;
 
       var xhr = XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
-      xhr.open('POST', `https://conductor.stoplight.io/v1/conductor/fill/in`, true);
+      xhr.open('POST', `https://conductor.stoplight.io/v1/flows/run/bRvNWB87XKoSpfFCJ?__alias=production`, true);
       xhr.setRequestHeader('Content-type', 'application/json');
 
       xhr.onload = function() {
@@ -53,7 +55,7 @@ new Vue({
         }
       };
 
-      xhr.send(JSON.stringify({phone, email}));
+      xhr.send(JSON.stringify({trumpRollToPhone: phone, trumpRollToEmail: email, selected: selected}));
     }
   },
 });
