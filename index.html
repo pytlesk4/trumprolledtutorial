@@ -1,22 +1,72 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>React Static Boilerplate</title>
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,500italic,700,700italic">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Trump Rolled</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600,600italic,400italic' rel='stylesheet' type='text/css'>
+
+    <script src="https://unpkg.com/vue@2.0.3/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.4/lodash.min.js"></script>
+
+    <link rel='stylesheet' type='text/css' href='main.css' />
   </head>
+
   <body>
-    <div id="container"></div>
-    <script src="/dist/main.1068d1b79949535ea58c.js"></script>
-    <script>
-      window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-      ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
-    </script>
-    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    <!-- Display a message if JS has been disabled on the browser. -->
+    <noscript>If you're seeing this message, that means <strong>JavaScript has been disabled on your browser</strong>, please <strong>enable JS</strong> to make this app work.</noscript>
+
+    <!-- The app hooks into this div -->
+    <div id='app'>
+      <div class='container ta-c'>
+        <img
+          class='container-img'
+          :src='headerImg'
+        />
+
+        <h1>Trump Rolled</h1>
+
+        <div v-if='submitted'>
+          <h3>Success!</h3>
+
+          <p>
+            Bonerific. (tom don't leave this haha)
+          </p>
+        </div>
+        <div v-else>
+          <h3>Do It</h3>
+
+          <form>
+            <input
+              class='form-input'
+              placeholder='phone number, no spaces'
+              v-model='phone'
+              :disabled='submitting'
+            />
+
+            <br />
+
+            <input
+              class='form-input'
+              type='email'
+              placeholder='who@foo.com'
+              v-model='email'
+              :disabled='submitting'
+            />
+
+            <button class='btn' @click='send' :disabled='submitting'>
+              <span v-if='submitting'>Working...</span>
+              <span v-else>Send It</span>
+            </button>
+          </form>
+          <div class='container-error' v-if='error'>{{error}}</div>
+        </div>
+      </div>
+    </div>
+
+    <script src='main.js'></script>
   </body>
 </html>
