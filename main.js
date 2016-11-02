@@ -9,7 +9,7 @@ new Vue({
   data: {
     phone: '',
     email: '',
-    selected: '',
+    selected: 'donald',
     error: null,
     submitting: false,
     submitted: false,
