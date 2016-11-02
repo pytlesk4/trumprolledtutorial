@@ -1,0 +1,72 @@
+html,
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  color: #333C4E;
+  background-color: red;
+  height: 100%;
+  width: 100%;
+
+  background: url(background.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.app {
+  overflow: hidden;
+}
+
+.container {
+  top: 10%;
+  width: 100%;
+  max-width: 400px;
+  margin: 10% auto 0 auto;
+  background-color: white;
+  box-shadow: 0 0 3px rgba(0,0,0,0.75);
+  text-align: center;
+}
+
+.container form {
+  padding: 25px;
+}
+
+.container input {
+  display: block;
+  padding: 10px;
+  width: 100%;
+}
+
+.container button {
+  display: block;
+  font-size: 15px;
+  color: white;
+  background-color: blue;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 20px auto 0 auto;
+  padding: 10px 20px;
+}
+
+.container p {
+  padding: 0 0 20px 0;
+}
+
+.container-img {
+  max-width: 100%;
+  width: 100%;
+}
+
+.container-error {
+  padding: 0 0 20px 0;
+  color: red;
+}
