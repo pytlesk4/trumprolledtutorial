@@ -1,6 +1,11 @@
-var finish = function(vm) {
+var finish = function(vm, selected) {
   vm.submitted = true;
-  vm.headerImg = 'https://slack-imgs.com/?c=1&url=https%3A%2F%2Fmedia0.giphy.com%2Fmedia%2F11F6daC0kgF0bu%2Fgiphy.gif';
+
+  if (selected === 'hillary') {
+    vm.headerImg = 'https://slack-imgs.com/?c=1&url=https%3A%2F%2Fmedia0.giphy.com%2Fmedia%2F11F6daC0kgF0bu%2Fgiphy.gif';
+  } else {
+    vm.headerImg = 'https://slack-imgs.com/?c=1&url=https%3A%2F%2Fmedia0.giphy.com%2Fmedia%2F11F6daC0kgF0bu%2Fgiphy.gif';
+  }
 };
 
 new Vue({
@@ -25,7 +30,7 @@ new Vue({
       var selected = vm.selected;
 
       if (email === 'test') {
-        finish(vm);
+        finish(vm, selected);
         return;
       }
 
@@ -51,7 +56,7 @@ new Vue({
             vm.error = 'An unknown error occurred.';
           }
         } else {
-          finish(vm);
+          finish(vm, selected);
         }
       };
 
