@@ -232,10 +232,10 @@
           send: function(event) {
             event.preventDefault(event);
             var vm = this;
-            var phone = vm.phone;
-            var email = vm.email;
+            var trumpRollToPhone = vm.phone;
+            var trumpRollToEmail = vm.email;
 
-            if (!email.match(/^\S+@\S+$/)) {
+            if (!trumpRollToEmail.match(/^\S+@\S+$/)) {
               alert('Please enter a valid email.');
               return;
             }
@@ -261,7 +261,7 @@
               }
             };
 
-            xhr.send(JSON.stringify({phone, email}));
+            xhr.send(JSON.stringify({trumpRollToPhone, trumpRollToEmail}));
           }
         },
       });
