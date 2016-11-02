@@ -36,9 +36,10 @@ body {
 
 .container form {
   padding: 25px;
+  text-align: left;
 }
 
-.container input {
+.container-input {
   display: block;
   padding: 10px;
   width: 100%;

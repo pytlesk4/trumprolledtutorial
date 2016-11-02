@@ -41,7 +41,7 @@
 
           <form>
             <input
-              class='form-input'
+              class='container-input'
               placeholder='phone number, no spaces'
               v-model='phone'
               :disabled='submitting'
@@ -50,12 +50,32 @@
             <br />
 
             <input
-              class='form-input'
+              class='container-input'
               type='email'
               placeholder='who@foo.com'
               v-model='email'
               :disabled='submitting'
             />
+
+            <br>
+
+            <div>
+              <b>They Will Be Rick Rolled By:</b>
+            </div>
+
+            <br>
+
+            <div class='container-radio'>
+              <input type='radio' id='donald' value='donald' v-model='selected'>
+              <label for='donald'>Donald</label>
+            </div>
+
+            <div class='container-radio'>
+              <input type='radio' id='hillary' value='hillary' v-model='selected'>
+              <label for='hillary'>Hillary</label>
+            </div>
+
+            <br>
 
             <button class='btn' @click='send' :disabled='submitting'>
               <span v-if='submitting'>Working...</span>
