@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Trump Rolled</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600,600italic,400italic' rel='stylesheet' type='text/css'>
+
+    <script src="https://unpkg.com/vue@2.0.3/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.4/lodash.min.js"></script>
+
+    <style>
+      html,
+      body {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 12px;
+        color: #333C4E;
+        background-color: #fff;
+        height: 100%;
+      }
+
+      #app {
+        height: 100%;
+      }
+
+      .App {
+        opacity: 0;
+      }
+
+      /* Spinner */
+
+      .Spinner-inner {
+        width: 50px;
+        height: 50px;
+        position: relative;
+        margin: 0 auto;
+      }
+
+      .Spinner-bounce1,
+      .Spinner-bounce2 {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0.6;
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-animation: sk-bounce 2s infinite ease-in-out;
+        animation: sk-bounce 2s infinite ease-in-out;
+      }
+
+      .Spinner-bounce2 {
+        -webkit-animation-delay: -1s;
+        animation-delay: -1s;
+      }
+
+      .Spinner-text {
+        text-align: center;
+        color: rgba(0 ,0 ,0 ,0.75);
+        font-size: 16px;
+        max-width: 300px;
+        font-weight: bold;
+      }
+
+      @-webkit-keyframes sk-bounce {
+        0%, 100% {
+          -webkit-transform: scale(0);
+        }
+
+        50% {
+          -webkit-transform: scale(1);
+        }
+      }
+
+      @-moz-keyframes sk-bounce {
+        0%, 100% {
+          transform: scale(0);
+          -webkit-transform: scale(0);
+        }
+
+        50% {
+          transform: scale(1);
+          -webkit-transform: scale(1);
+        }
+      }
+
+      @-webkit-keyframes sk-bounce {
+        0%, 100% {
+          transform: scale(0);
+          -webkit-transform: scale(0);
+        }
+
+        50% {
+          transform: scale(1);
+          -webkit-transform: scale(1);
+        }
+      }
+
+      @-o-keyframes sk-bounce {
+        0%, 100% {
+          transform: scale(0);
+          -webkit-transform: scale(0);
+        }
+
+        50% {
+          transform: scale(1);
+          -webkit-transform: scale(1);
+        }
+      }
+
+      @keyframes sk-bounce {
+        0%, 100% {
+          transform: scale(0);
+          -webkit-transform: scale(0);
+        }
+
+        50% {
+          transform: scale(1);
+          -webkit-transform: scale(1);
+        }
+      }
+
+      /* SPACE */
+
+      .fill-space {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+
+      .mb-1 {
+        margin-bottom: 10px;
+      }
+
+      .mt-2 {
+        margin-top: 20px;
+      }
+
+      /* FLEX */
+
+      .f {
+        display: flex;
+        flex: none;
+      }
+
+      .f-0 {
+        flex: 0 0 auto;
+      }
+
+      .f-1 {
+        flex: 1;
+        min-height: 0;
+      }
+
+      .fd-c {
+        -ms-flex-direction: column;
+        flex-direction: column;
+      }
+
+      .ai-c {
+        align-items: center;
+      }
+
+      .jc-c {
+        justify-content: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Display a message if JS has been disabled on the browser. -->
+    <noscript>If you're seeing this message, that means <strong>JavaScript has been disabled on your browser</strong>, please <strong>enable JS</strong> to make this app work.</noscript>
+
+    <!-- The app hooks into this div -->
+    <div id="app">
+      <h1>Trump Rolled</h1>
+
+      <div class='container ta-c'>
+        <div v-if='submitted'>
+          <h3>Success!</h3>
+        </div>
+        <div v-else>
+          <h3>Do It</h3>
+
+          <form>
+            <input
+              class='form-input'
+              placeholder='phone number, no spaces'
+              v-model='phone'
+              :disabled='submitting'
+            />
+
+            <br />
+
+            <input
+              class='form-input'
+              type='email'
+              placeholder='who@foo.com'
+              v-model='email'
+              :disabled='submitting'
+            />
+
+            <button class='btn' @click='send' :disabled='submitting'>
+              <span v-if='submitting'>Working...</span>
+              <span v-else>Send It</span>
+            </button>
+          </form>
+          <div class='error' v-if='error'>{{error}}</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      new Vue({
+        el: '#app',
+
+        data: {
+          phone: '',
+          email: '',
+          error: null,
+          submitting: false,
+          submitted: false,
+        },
+
+        methods: {
+          send: function(event) {
+            event.preventDefault(event);
+            var vm = this;
+            var phone = vm.phone;
+            var email = vm.email;
+
+            if (!email.match(/^\S+@\S+$/)) {
+              alert('Please enter a valid email.');
+              return;
+            }
+
+            vm.submitting = true;
+            vm.error = null;
+
+            var xhr = XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+            xhr.open('POST', `https://conductor.stoplight.io/v1/conductor/fill/in`, true);
+            xhr.setRequestHeader('Content-type', 'application/json');
+
+            xhr.onload = function() {
+              if (xhr.status !== 200) {
+                vm.submitting = false;
+                try {
+                  error = JSON.parse(xhr.responseText);
+                  vm.error = error;
+                } catch (e) {
+                  vm.error = 'An unknown error occurred.';
+                }
+              } else {
+                vm.submitted = true;
+              }
+            };
+
+            xhr.send(JSON.stringify({phone, email}));
+          }
+        },
+      });
+    </script>
+  </body>
+</html>
