@@ -29,6 +29,11 @@ new Vue({
       var phone = _.replace(vm.phone, / |-|\(|\)/g, '');
       var email = vm.email;
       var selected = vm.selected;
+      
+      if (!phone) {
+        alert('Please enter a valid phone.');
+        return;
+      }
 
       if (phone === '911') {
         alert('Prank calling the police is illegal!');
