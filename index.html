@@ -43,10 +43,12 @@
         <div v-if='submitted'>
           <h3>Boom Shakalaka</h3>
 
-          <h4 style="text-align: center;padding: 0 15px 20px 15px;margin: 0;">
+          <h4 style="text-align: center; padding: 0 15px 20px 15px; margin: 0;">
             Give it a few minutes, and you should receive an email (if you put your email) with a recording
             of your friend's response.
           </h4>
+          <p style="text-align: center; padding: 0 0 20px 0; margin: 0;">Crafted with &hearts; at <a target="_blank" href="http://stoplight.io/platform/scenarios">Stoplight</a>. Learn
+            <a target="_blank" href="https://medium.com/api-corner/trump-rolling-to-make-apis-great-again-a80678766564#.kr43a5fml">how this was made</a> here.</p>
         </div>
         <div v-else>
           <h4 style="text-align: center;padding: 0 15px;margin: 0;">
@@ -56,7 +58,7 @@
           <form>
             <input
               class='container-input'
-              placeholder='phone number, no spaces'
+              placeholder='phone number'
               v-model='phone'
               style="margin-bottom: 5px"
               :disabled='submitting'
@@ -65,7 +67,7 @@
             <input
               class='container-input'
               type='email'
-              placeholder='who@foo.com'
+              placeholder='hillary@trump.com'
               v-model='email'
               :disabled='submitting'
             />

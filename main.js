@@ -26,7 +26,7 @@ new Vue({
     send: function() {
       event.preventDefault(event);
       var vm = this;
-      var phone = vm.phone;
+      var phone = _.replace(vm.phone, / |-|\(|\)/g, '');
       var email = vm.email;
       var selected = vm.selected;
 
