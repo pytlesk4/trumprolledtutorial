@@ -41,24 +41,26 @@
         <h1>Trump Rolled</h1>
 
         <div v-if='submitted'>
-          <h3>Success!</h3>
+          <h3>Boom Shakalaka</h3>
 
-          <p>
-            Congrats!
-          </p>
+          <h4 style="text-align: center;padding: 0 15px 20px 15px;margin: 0;">
+            Give it a few minutes, and you should receive an email (if you put your email) with a recording
+            of your friend's response.
+          </h4>
         </div>
         <div v-else>
-          <h3>Do It</h3>
-          <h4 style="text-align: center;padding: 30px 0 20px 0;margin: 0;">Enter a phone number to prank, and email to send the recording to.  Then Enjoy.  Over and Over.</h4>
+          <h4 style="text-align: center;padding: 0 15px;margin: 0;">
+            Enter a phone number to prank (a friend), and email (your email) to send the recording to. Then Enjoy. Over and Over.
+          </h4>
+
           <form>
             <input
               class='container-input'
               placeholder='phone number, no spaces'
               v-model='phone'
+              style="margin-bottom: 5px"
               :disabled='submitting'
             />
-
-            <br />
 
             <input
               class='container-input'
@@ -92,7 +94,7 @@
               <span v-if='submitting'>Working...</span>
               <span v-else>Send It</span>
             </button>
-            <p style="text-align: center;padding: 30px 0 20px 0;margin: 0;">Crafted with &hearts; at <a target="_blank" href="http://stoplight.io/">Stoplight</a>. Learn
+            <p style="text-align: center;padding: 30px 0 0 0;margin: 0;">Crafted with &hearts; at <a target="_blank" href="http://stoplight.io/">Stoplight</a>. Learn
             <a target="_blank" href="https://medium.com/api-corner">how this was made</a> here.</p>
           </form>
           <div class='container-error' v-if='error'>{{error}}</div>
