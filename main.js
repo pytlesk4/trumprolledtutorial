@@ -35,6 +35,11 @@ new Vue({
         return;
       }
 
+      if (!phone) {
+        alert('Please enter a valid phone.');
+        return;
+      }
+
       if (phone === '911') {
         alert('Prank calling the police is illegal!');
         return;
