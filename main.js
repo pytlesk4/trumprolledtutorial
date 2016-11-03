@@ -30,6 +30,11 @@ new Vue({
       var email = vm.email;
       var selected = vm.selected;
 
+      if (phone === '911') {
+        alert('Prank calling the police is illegal!');
+        return;
+      }
+
       if (email === 'test') {
         finish(vm, selected);
         return;
