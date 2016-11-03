@@ -26,6 +26,7 @@ body {
   background-color: white;
   box-shadow: 0 0 3px rgba(0,0,0,0.75);
   text-align: center;
+  border-radius: 2px;
 }
 
 .container form {
@@ -59,9 +60,19 @@ body {
 .container-img {
   max-width: 100%;
   width: 100%;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 }
 
 .container-error {
   padding: 0 0 20px 0;
   color: red;
+}
+
+.container-radio input, .container-radio label, .btn {
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgba(0, 0, 255, 0.8);
 }

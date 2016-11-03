@@ -26,9 +26,14 @@ new Vue({
     send: function() {
       event.preventDefault(event);
       var vm = this;
-      var phone = vm.phone;
+      var phone = _.replace(vm.phone, / |-|\(|\)/g, '');
       var email = vm.email;
       var selected = vm.selected;
+
+      if (phone === '911') {
+        alert('Prank calling the police is illegal!');
+        return;
+      }
 
       if (email === 'test') {
         finish(vm, selected);
