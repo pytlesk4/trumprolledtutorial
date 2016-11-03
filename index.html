@@ -8,6 +8,12 @@
     <meta name='mobile-web-app-capable' content='yes'>
     <title>Trump Rolled</title>
 
+    <meta property="og:url"           content="http://trumprolled.com/" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Trump Rolled" />
+    <meta property="og:description"   content="Prank call your friends about the 2016 Election" />
+    <meta property="og:image"         content="http://trumprolled.com/background.png" />
+
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600,600italic,400italic' rel='stylesheet' type='text/css'>
 
     <script src='https://unpkg.com/vue@2.0.3/dist/vue.js'></script>
@@ -26,6 +32,15 @@
   </head>
   <!--<audio src='http://trumpsoundboard.com/sounds/the american dream is dead.mp3' loop autoplay />-->
   <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=580327892114787";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
     <!-- Display a message if JS has been disabled on the browser. -->
     <noscript>If you're seeing this message, that means <strong>JavaScript has been disabled on your browser</strong>, please <strong>enable JS</strong> to make this app work.</noscript>
 
@@ -41,15 +56,26 @@
 
         <h1>Trump Rolled</h1>
 
-        <div v-if='submitted'>
+        <div v-if='submitted' style='padding: 25px;'>
           <h3>Boom Shakalaka</h3>
 
           <h4 style="text-align: center; padding: 0 15px 20px 15px; margin: 0;">
             Give it a few minutes, and you should receive an email (if you put your email) with a recording
             of your friend's response.
           </h4>
-          <p style="text-align: center; padding: 0 0 20px 0; margin: 0;">Crafted with &hearts; at <a target="_blank" href="http://stoplight.io/platform/scenarios">Stoplight</a>. Learn
-            <a target="_blank" href="https://medium.com/api-corner/trump-rolling-to-make-apis-great-again-a80678766564#.kr43a5fml">how this was made</a> here.</p>
+
+          <div class='share-buttons'>
+            <p style='padding: 10px 0;'>Like it? Give it a share!</p>
+
+            <a class="fb-share-button" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ftrumprolled.com%2F&amp;src=sdkpreparse"></a>
+
+            <a class='tw-share-button' target="_blank" href="https://twitter.com/home?status=Trump%20roll%20your%20friends%20%23MakeAPIsGreatAgain"></a>
+          </div>
+
+          <p>
+            Crafted with &hearts; at <a target="_blank" href="http://stoplight.io/platform/scenarios">Stoplight</a>.
+            Learn how this was <a target="_blank" href="https://medium.com/api-corner/trump-rolling-to-make-apis-great-again-a80678766564#.kr43a5fml">made</a>.
+          </p>
         </div>
         <div v-else>
           <h4 style="text-align: center;padding: 0 15px;margin: 0;">
@@ -97,8 +123,19 @@
               <span v-if='submitting'>Working...</span>
               <span v-else>Send It</span>
             </button>
-            <p style="text-align: center;padding: 30px 0 0 0;margin: 0;">Crafted with &hearts; at <a target="_blank" href="http://stoplight.io/platform/scenarios">Stoplight</a>. Learn
-            <a target="_blank" href="https://medium.com/api-corner/trump-rolling-to-make-apis-great-again-a80678766564#.kr43a5fml">how this was made</a> here.</p>
+
+            <div class='share-buttons'>
+              <p style='padding: 10px 0;'>Like it? Give it a share!</p>
+
+              <a class="fb-share-button" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ftrumprolled.com%2F&amp;src=sdkpreparse"></a>
+
+              <a class='tw-share-button' target="_blank" href="https://twitter.com/home?status=Trump%20roll%20your%20friends%20%23MakeAPIsGreatAgain"></a>
+            </div>
+
+            <p>
+              Crafted with &hearts; at <a target="_blank" href="http://stoplight.io/platform/scenarios">Stoplight</a>.
+              Learn how this was <a target="_blank" href="https://medium.com/api-corner/trump-rolling-to-make-apis-great-again-a80678766564#.kr43a5fml">made</a>.
+            </p>
           </form>
           <div class='container-error' v-if='error'>{{error}}</div>
         </div>
