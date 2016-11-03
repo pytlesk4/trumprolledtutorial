@@ -1,26 +1,28 @@
 <!doctype html>
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="manifest.json">
-    <meta name="mobile-web-app-capable" content="yes">
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='manifest' href='manifest.json'>
+    <meta name='mobile-web-app-capable' content='yes'>
     <title>Trump Rolled</title>
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600,600italic,400italic' rel='stylesheet' type='text/css'>
 
-    <script src="https://unpkg.com/vue@2.0.3/dist/vue.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.4/lodash.min.js"></script>
+    <script src='https://unpkg.com/vue@2.0.3/dist/vue.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.4/lodash.min.js'></script>
 
     <link rel='stylesheet' type='text/css' href='main.css' />
   </head>
-  <audio src='http://trumpsoundboard.com/sounds/the american dream is dead.mp3' loop autoplay />
+  <!--<audio src='http://trumpsoundboard.com/sounds/the american dream is dead.mp3' loop autoplay />-->
   <body>
     <!-- Display a message if JS has been disabled on the browser. -->
     <noscript>If you're seeing this message, that means <strong>JavaScript has been disabled on your browser</strong>, please <strong>enable JS</strong> to make this app work.</noscript>
 
     <!-- The app hooks into this div -->
-    <!--<div id='app'>
+    <!--document.getElementById('dead');-->
+    <audio id='dead' src='http://trumpsoundboard.com/sounds/the american dream is dead.mp3' autostart='false' preload='auto' ></audio>
+    <div id='app'>
       <div class='container ta-c'>
         <img
           class='container-img'
@@ -87,6 +89,6 @@
       </div>
     </div>
 
-    <script src='main.js'></script>-->
+    <script src='main.js'></script>
   </body>
 </html>

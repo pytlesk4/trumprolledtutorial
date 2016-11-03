@@ -16,13 +16,14 @@ new Vue({
     email: '',
     selected: 'donald',
     error: null,
+    audio: document.getElementById('dead'),
     submitting: false,
     submitted: false,
     headerImg: 'https://slack-imgs.com/?c=1&url=http%3A%2F%2Fi.giphy.com%2Fm7BTtLWhjkEJa.gif',
   },
 
   methods: {
-    send: function(event) {
+    send: function() {
       event.preventDefault(event);
       var vm = this;
       var phone = vm.phone;
@@ -41,6 +42,9 @@ new Vue({
 
       vm.submitting = true;
       vm.error = null;
+
+      vm.audio.currentTime = 0;
+      vm.audio.play();
 
       var xhr = XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
       xhr.open('POST', `https://conductor.stoplight.io/v1/flows/run/bRvNWB87XKoSpfFCJ?__alias=production`, true);
