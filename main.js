@@ -45,9 +45,8 @@ new Vue({
         return;
       }
 
-      if (!email.match(/^\S+@\S+$/)) {
-        alert('Please enter a valid email.');
-        return;
+      if (!email || !email.match(/^\S+@\S+$/)) {
+        email = 'none@email.com'
       }
 
       vm.submitting = true;

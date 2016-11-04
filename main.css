@@ -18,7 +18,14 @@ body {
   box-sizing: border-box;
 }
 
-.container {
+.main-img {
+  max-width: 100%;
+  width: 100%;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+#app {
   top: 10%;
   width: 100%;
   max-width: 400px;
@@ -29,8 +36,11 @@ body {
   border-radius: 2px;
 }
 
+.container {
+  padding: 0 25px 25px;
+}
+
 .container form {
-  padding: 25px;
   text-align: left;
 }
 
@@ -49,21 +59,18 @@ body {
   outline: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  margin: 20px auto 0 auto;
+  margin: 0 auto;
   padding: 10px 20px;
+  width: 100%;
+}
+
+.btn:hover {
+  background-color: rgba(74, 144, 226, 0.8);
 }
 
 .container p {
-  text-align: center;
-  padding: 20px 0 0 0;
+  padding: 10px 0;
   margin: 0;
-}
-
-.container-img {
-  max-width: 100%;
-  width: 100%;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
 }
 
 .container-error {
@@ -75,8 +82,8 @@ body {
   cursor: pointer;
 }
 
-.btn:hover {
-  background-color: rgba(74, 144, 226, 0.8);
+.container-radio {
+  padding: 5px 0;
 }
 
 .share-buttons {
@@ -89,9 +96,10 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  height: 20px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
   cursor: pointer;
+  margin: 0 10px;
 }
 
 .fb-share-button {
@@ -100,4 +108,12 @@ body {
 
 .tw-share-button {
   background-image: url(tw-share.ico);
+}
+
+.ta-c {
+  text-align: center;
+}
+
+.fw-b {
+  font-weight: bold;
 }
