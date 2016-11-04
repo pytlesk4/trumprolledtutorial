@@ -46,64 +46,67 @@
     <!--document.getElementById('dead');-->
     <audio id='dead' src='http://trumpsoundboard.com/sounds/the american dream is dead.mp3' autostart='false' preload='auto' ></audio>
     <div id='app'>
+      <img
+        class='main-img'
+        :src='headerImg'
+      />
+
       <div class='container ta-c'>
-        <img
-          class='container-img'
-          :src='headerImg'
-        />
+        <div v-if='submitted'>
+          <h1>Boom Shakalaka</h1>
 
-        <h1>Trump Rolled</h1>
-
-        <div v-if='submitted' style='padding: 25px;'>
-          <h3>Boom Shakalaka</h3>
-
-          <h4 style="text-align: center; padding: 0 15px 20px 15px; margin: 0;">
+          <p class='fw-b'>
             Give it a few minutes, and you should receive an email (if you put your email) with a recording
             of your friend's response.
-          </h4>
+          </p>
 
           <div class='share-buttons'>
-            <p style='padding: 10px 0;'>Like it? Give it a share!</p>
+            <h3>Like it? Give it a share!</h3>
 
             <a class="fb-share-button" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ftrumprolled.com%2F&amp;src=sdkpreparse"></a>
 
             <a class='tw-share-button' target="_blank" href="https://twitter.com/home?status=Trump%20roll%20your%20friends%20http%3A%2F%2Ftrumprolled.com%20%23MakeAPIsGreatAgain"></a>
           </div>
 
-          <p>
+          <p class='ta-c'>
             Crafted with &hearts; at <a target="_blank" href="http://stoplight.io/platform/scenarios">Stoplight</a>.
             Learn how this was <a target="_blank" href="https://medium.com/api-corner/trump-rolling-to-make-apis-great-again-a80678766564#.kr43a5fml">made</a>.
           </p>
         </div>
-        <div v-else>
-          <h4 style="text-align: center;padding: 0 15px;margin: 0;">
-            Enter a phone number to prank (a friend), and email (your email) to send the recording to. Then Enjoy. Over and Over.
-          </h4>
 
+        <div v-else>
+          <h1>Trump Rolled</h1>
           <form>
+            <p>
+              Trump Rolling is easy, just enter a phone number!
+            </p>
+
+            <p>
+              They will receive a call from Trump or Hillary, and you will receive an email with the recorded conversation.
+            </p>
+
+            <p class='fw-b'>Phone number to prank:</p>
+
             <input
+              type='tel'
               class='container-input'
-              placeholder='phone number'
+              placeholder='Phone Number'
               v-model='phone'
               style="margin-bottom: 5px"
               :disabled='submitting'
             />
 
+            <p class='fw-b'>Email to receive the recording:</p>
+
             <input
               class='container-input'
               type='email'
-              placeholder='hillary@trump.com'
+              placeholder='hillary@trump.com (optional)'
               v-model='email'
               :disabled='submitting'
             />
 
-            <br>
-
-            <div>
-              <b>They Will Be Rick Rolled By:</b>
-            </div>
-
-            <br>
+            <p class='fw-b'>They Will Be Rick Rolled By:</p>
 
             <div class='container-radio'>
               <input type='radio' id='donald' value='donald' v-model='selected'>
@@ -123,14 +126,14 @@
             </button>
 
             <div class='share-buttons'>
-              <p style='padding: 10px 0;'>Like it? Give it a share!</p>
+              <h3 class='fw-b'>Like it? Give it a share!</h3>
 
               <a class="fb-share-button" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ftrumprolled.com%2F&amp;src=sdkpreparse"></a>
 
               <a class='tw-share-button' target="_blank" href="https://twitter.com/home?status=Trump%20roll%20your%20friends%20http%3A%2F%2Ftrumprolled.com%20%23MakeAPIsGreatAgain"></a>
             </div>
 
-            <p>
+            <p class='ta-c'>
               Crafted with &hearts; at <a target="_blank" href="http://stoplight.io/platform/scenarios">Stoplight</a>.
               Learn how this was <a target="_blank" href="https://medium.com/api-corner/trump-rolling-to-make-apis-great-again-a80678766564#.kr43a5fml">made</a>.
             </p>
