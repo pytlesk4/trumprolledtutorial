@@ -117,3 +117,27 @@ body {
 .fw-b {
   font-weight: bold;
 }
+
+.sc-button {
+  text-align: center;
+  padding-top: 0px;
+}
+
+.sc-send-button {
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 40px;
+  width: 250px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.sc-send-button {
+  background-image: url(cash-button-green.png);
+}
+
+.sc-b {
+  font-weight: bold;
+}
