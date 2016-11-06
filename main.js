@@ -17,19 +17,30 @@ new Vue({
     selected: 'donald',
     error: null,
     audio: document.getElementById('dead'),
+    audio2: document.getElementById('reroll'),
     submitting: false,
     submitted: false,
     headerImg: 'https://slack-imgs.com/?c=1&url=http%3A%2F%2Fi.giphy.com%2Fm7BTtLWhjkEJa.gif',
   },
 
   methods: {
+    reroll: function() {
+      var vm = this;
+      vm.submitting = false;
+      vm.submitted = false;
+      vm.error = null;
+      vm.audio2.currentTime = 0;
+      vm.audio2.play();
+      vm.headerImg = 'https://slack-imgs.com/?c=1&url=http%3A%2F%2Fi.giphy.com%2Fm7BTtLWhjkEJa.gif'
+    },
+
     send: function() {
       event.preventDefault(event);
       var vm = this;
       var phone = _.replace(vm.phone, / |-|\(|\)/g, '');
       var email = vm.email;
       var selected = vm.selected;
-      
+
       if (!phone) {
         alert('Please enter a valid phone.');
         return;

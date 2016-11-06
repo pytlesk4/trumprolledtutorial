@@ -45,6 +45,7 @@
     <!-- The app hooks into this div -->
     <!--document.getElementById('dead');-->
     <audio id='dead' src='http://trumpsoundboard.com/sounds/the american dream is dead.mp3' autostart='false' preload='auto' ></audio>
+    <audio id='reroll' src='http://trumpsoundboard.com/sounds/cheyah.mp3' autostart='false' preload='auto' ></audio>
     <div id='app'>
       <img
         class='main-img'
@@ -67,6 +68,12 @@
 
             <a class='tw-share-button' target="_blank" href="https://twitter.com/home?status=Trump%20roll%20your%20friends%20http%3A%2F%2Ftrumprolled.com%20%23MakeAPIsGreatAgain"></a>
           </div>
+
+          <br>
+
+          <button class='btn' @click='reroll' :enabled='submitted'>
+              Reroll
+          </button>
 
           <p class='ta-c'>
             Crafted with &hearts; at <a target="_blank" href="http://stoplight.io/platform/scenarios">Stoplight</a>.
