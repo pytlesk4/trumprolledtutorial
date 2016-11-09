@@ -15,32 +15,96 @@
     <meta property="og:image"         content="http://i.imgur.com/GwlmXbih.jpg" />
     <meta property="og:image:type"    content="image/jpeg" />
 
-    <meta name="twitter:card"         content="summary_large_image">
-    <meta name="twitter:site"         content="@trumprolled">
-    <meta name="twitter:creator"      content="@pytlesk4">
-    <meta name="twitter:title"        content="Trump-roll friends, learn about APIs">
-    <meta name="twitter:description"  content="Prank call your friends about the 2016 Election">
-    <meta name="twitter:image"        content="http://i.imgur.com/GwlmXbih.jpg">
-
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,600,600italic,400italic' rel='stylesheet' type='text/css'>
 
     <script src='https://unpkg.com/vue@2.0.3/dist/vue.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.4/lodash.min.js'></script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-86782196-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
     <link rel='stylesheet' type='text/css' href='main.css' />
   </head>
-  <audio src='http://trumpsoundboard.com/sounds/the american dream is dead.mp3' loop autoplay />
   <body>
     <!-- Display a message if JS has been disabled on the browser. -->
     <noscript>If you're seeing this message, that means <strong>JavaScript has been disabled on your browser</strong>, please <strong>enable JS</strong> to make this app work.</noscript>
+
+
+    <audio id='dead' src='http://trumpsoundboard.com/sounds/the american dream is dead.mp3' autostart='false' preload='auto' ></audio>
+    <audio id='reroll' src='http://trumpsoundboard.com/sounds/cheyah.mp3' autostart='false' preload='auto' ></audio>
+    <!-- The app hooks into this div -->
+    <div id='app'>
+      <img
+        class='main-img'
+        :src='headerImg'
+      />
+
+      <div class='container ta-c'>
+        <div v-if='submitted'>
+          <h1>Boom Shakalaka</h1>
+
+          <p class='fw-b'>
+            Give it a few minutes, and you should receive an email (if you put your email) with a recording
+            of your friend's response.
+          </p>
+
+          <button class='btn' @click='reroll' :enabled='submitted'>
+              Reroll
+          </button>
+        </div>
+
+        <div v-else>
+          <h1>Trump Rolled</h1>
+          <form>
+            <p>
+              Trump Rolling is easy, just enter a phone number!
+            </p>
+
+            <p>
+              They will receive a call from Trump or Hillary, and you will receive an email with the recorded conversation.
+            </p>
+
+            <p class='fw-b'>Phone number to prank:</p>
+
+            <input
+              type='tel'
+              class='container-input'
+              placeholder='Phone Number'
+              v-model='phone'
+              style="margin-bottom: 5px"
+              :disabled='submitting'
+            />
+
+            <p class='fw-b'>Email to receive the recording:</p>
+
+            <input
+              class='container-input'
+              type='email'
+              placeholder='hillary@trump.com (optional)'
+              v-model='email'
+              :disabled='submitting'
+            />
+
+            <p class='fw-b'>They Will Be Rick Rolled By:</p>
+
+            <div class='container-radio'>
+              <input type='radio' id='donald' value='donald' v-model='selected'>
+              <label for='donald'>Donald</label>
+            </div>
+
+            <div class='container-radio'>
+              <input type='radio' id='hillary' value='hillary' v-model='selected'>
+              <label for='hillary'>Hillary</label>
+            </div>
+
+            <br>
+
+            <button class='btn' @click='send' :disabled='submitting'>
+              <span v-if='submitting'>Working...</span>
+              <span v-else>Send It</span>
+            </button>
+          </form>
+          <div class='container-error' v-if='error'>{{error}}</div>
+        </div>
+      </div>
+    </div>
+
+    <script src='main.js'></script>
   </body>
 </html>
