@@ -72,7 +72,7 @@ new Vue({
       vm.audio.play();
 
       var xhr = XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
-      xhr.open('POST', `https://conductor.stoplight.io/v1/flows/run/bRvNWB87XKoSpfFCJ?__alias=production`, true);
+      xhr.open('POST', `https://conductor.stoplight.io/v1/flows/run/TCwxvCLqeAuu7FCYQ?__alias=production`, true);
       xhr.setRequestHeader('Content-type', 'application/json');
 
       xhr.onload = function() {
@@ -89,7 +89,7 @@ new Vue({
         }
       };
 
-      xhr.send(JSON.stringify({trumpRollToPhone: phone, trumpRollToEmail: email, selected: selected}));
+      xhr.send(JSON.stringify({twilioPhoneTo: phone, trumpRollToEmail: email, selected: selected}));
     }
   },
 });
